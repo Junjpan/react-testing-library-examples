@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it match the snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <span
+      data-testid="change-input-greeting"
+    >
+      Welcome, 
+    </span>
+    <br />
+    <input
+      aria-label="nameinput"
+      class="input"
+      placeholder="Please enter your name"
+      type="text"
+      value=""
+    />
+  </div>
+</DocumentFragment>
+`;

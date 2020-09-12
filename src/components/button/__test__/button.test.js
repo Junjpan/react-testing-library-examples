@@ -25,7 +25,6 @@ it('calls correct function on click',()=>{
 fireEvent.click(getByTestId('button'));
 expect(Hello).toHaveBeenCalled()
  
-
 })
 
 
