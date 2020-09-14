@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Button from './components/button/button';
 import NameInput from './components/Input/NameInput';
+import FocusInput from './components/focusInput/FocusInput';
 
 function App() {
   const sayHello=()=>{
@@ -12,6 +13,7 @@ function App() {
       <header className="App-header">
         <h1>Testing</h1>
        <NameInput />
+       <FocusInput />
        <Button label='Click' sayHello={sayHello}></Button>
       </header>
     </div>

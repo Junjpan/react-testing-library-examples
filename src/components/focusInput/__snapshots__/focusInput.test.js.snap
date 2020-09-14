@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FocusInput match snapshop 1`] = `
+<div>
+  <input
+    arial-label="focus-input"
+    placeholder="Focus"
+    type="text"
+  />
+  <button>
+    Click to focus 
+  </button>
+</div>
+`;
