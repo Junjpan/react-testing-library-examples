@@ -3,6 +3,7 @@ import './App.css';
 import Button from './components/button/button';
 import NameInput from './components/Input/NameInput';
 import FocusInput from './components/focusInput/FocusInput';
+import Counter from './components/Effects/Counter';
 
 function App() {
   const sayHello=()=>{
@@ -14,6 +15,7 @@ function App() {
         <h1>Testing</h1>
        <NameInput />
        <FocusInput />
+       <Counter />
        <Button label='Click' sayHello={sayHello}></Button>
       </header>
     </div>
