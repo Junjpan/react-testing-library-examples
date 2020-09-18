@@ -4,6 +4,7 @@ import Button from './components/button/button';
 import NameInput from './components/Input/NameInput';
 import FocusInput from './components/focusInput/FocusInput';
 import Counter from './components/Effects/Counter';
+import TimeOut from './components/timeout/TimeOut';
 
 function App() {
   const sayHello=()=>{
@@ -12,12 +13,16 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+
         <h1>Testing</h1>
        <NameInput />
        <FocusInput />
        <Counter />
        <Button label='Click' sayHello={sayHello}></Button>
-      </header>
+       <hr/>
+       <TimeOut />
+       </header>
+
     </div>
   );
 }

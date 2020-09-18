@@ -1,6 +1,6 @@
 import React from 'react';
 import Counter from './Counter';
-import { render,fireEvent,cleanup, getByLabelText } from '@testing-library/react';
+import { render,fireEvent,cleanup } from '@testing-library/react';
 
 
 
