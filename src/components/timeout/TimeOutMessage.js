@@ -7,7 +7,7 @@ export default function TimeOutMessage(){
         console.log('hello')
         setTimeout(()=>{
             setMessage('Time Out')
-        },5000)
+        },5000);
     },[])
 
     return <p data-testid='timeout-message'>{message}</p>
