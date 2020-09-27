@@ -35,7 +35,7 @@ test("when clicking on button display joke if API success", async () => {
 
   const { getByTestId, getByText } = render(<Fetch />);
   fireEvent.click(getByText("Get a Chuck Norris joke"));
-  await wait(() => getByTestId("fetch-joke")); //you can use await waitForElement as well
+  await wait(() => getByTestId("fetch-joke")); //you can use await waitForElement or await wait() as well
   expect(getByTestId("fetch-joke").textContent).toBe(
     "Chuck Norris counted to infinity"
   );
@@ -43,6 +43,7 @@ test("when clicking on button display joke if API success", async () => {
   //[
   //  [ 'https://api.chucknorris.io/jokes/random', { method: 'GET' } ],
   //]
+  
   expect(global.fetch).toHaveBeenCalledTimes(1);
   expect(global.fetch.mock.calls[0][0]).toBe('https://api.chucknorris.io/jokes/random')
 
@@ -60,6 +61,7 @@ test('After clicking on button,display an error if API failes',async()=>{
  fireEvent.click(getByText("Get a Chuck Norris joke")) ;
  await wait(() => getByTestId("fetch-error"));
  expect(getByTestId('fetch-error').textContent).toBe("Failed to Fetch");
+ 
  expect(global.fetch).toHaveBeenCalledTimes(2); // because the test above's glbal.fetch.mockClear() has never been called
   expect(global.fetch.mock.calls[0][0]).toBe('https://api.chucknorris.io/jokes/random');
 
