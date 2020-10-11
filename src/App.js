@@ -6,7 +6,8 @@ import FocusInput from './components/focusInput/FocusInput';
 import Counter from './components/Effects/Counter';
 import TimeOut from './components/timeout/TimeOut';
 import Fetch from './components/fetch API/Fetch';
-import MultipleFetches from './components/multipleFetch/multipleFetches'
+import MultipleFetches from './components/multipleFetch/multipleFetches';
+import Search from './components/Async/Search';
 
 function App() {
   const sayHello=()=>{
@@ -25,8 +26,10 @@ function App() {
        <Fetch />
        <TimeOut />
        <MultipleFetches />
+       <hr/>
+       <Search />
        </header>
-
+    
     </div>
   );
 }
