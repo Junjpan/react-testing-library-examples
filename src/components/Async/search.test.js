@@ -33,5 +33,8 @@ describe('Search component',()=>{
         expect(screen.getByTestId('searchvalue').textContent).toBe('Search for Tom Smith')
     })
 
+    test('user should be "Jack"',async()=>{
+        expect(await screen.findByText('User: Jack')).toBeInTheDocument()
+    })
 
 })
