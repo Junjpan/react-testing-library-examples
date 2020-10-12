@@ -3,6 +3,7 @@ import SearchInput from "./SearchInput";
 
 const Search = () => {
   const searchRef = useRef(null);
+  const techRef=useRef(null);
   const [search, setSearch] = useState("");
   const [value, setValue] = useState("");
   const [user, setUser] = useState(null);
@@ -38,6 +39,7 @@ const Search = () => {
       <button onClick={() => searchRef.current.focus()}>Search</button>
       <p style={{color:'black'}}>{value}</p>
       <SearchInput
+        ref={techRef}
         value={value}
         onChange={(e) => {
           setValue(e.target.value);
@@ -45,7 +47,7 @@ const Search = () => {
       >
         Technical Search
       </SearchInput>
-      
+      <button onClick={() => techRef.current.focus()}>TechSearch</button>
     </div>
   );
 };

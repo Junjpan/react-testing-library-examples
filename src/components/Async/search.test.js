@@ -4,6 +4,7 @@ import { fireEvent,render,screen,act, getByTestId } from '@testing-library/react
 import userEvent from '@testing-library/user-event';
 import SearchInput from './SearchInput';
 
+
 describe('Search component',()=>{
     beforeEach(()=>{
         render(<Search />);
@@ -18,12 +19,12 @@ describe('Search component',()=>{
     })
 
     test('render button correctly',()=>{
-        expect(screen.getByRole('button').textContent).toBe('Search')
+        expect(screen.getAllByRole('button')[0].textContent).toBe('Search')
     })
 
     test('input is focus after butter is clicked',()=>{
         let searchInput=screen.getAllByRole('textbox')[0];
-        let button=screen.getByRole('button');
+        let button=screen.getAllByRole('button')[0];
         fireEvent.click(button);
         expect(document.activeElement).toBe(searchInput)
     })
@@ -51,10 +52,18 @@ test('Calls the onChange callback handler',()=>{
     const changeValue=jest.fn();
   
     const {getByTestId,getByLabelText}=render(<SearchInput value="" onChange={changeValue}>Testing Search:</SearchInput>);
-    fireEvent.change(getByTestId('search'),{target:{value:"SAP"}});
+    fireEvent.change(getByTestId('searchinput'),{target:{value:"SAP"}});
     expect(changeValue).toHaveBeenCalledTimes(1);
     expect(getByLabelText('Testing Search:')).toBeInTheDocument()
-    userEvent.type(getByTestId('search'),"Hi!");
+    userEvent.type(getByTestId('searchinput'),"Hi!");
     //userEvent trigger the changeValue function for every key stroke.
     expect(changeValue).toHaveBeenCalledTimes(4);
+})
+
+//testing forwarded ref
+test('It should foncus after techSearch button is clicked',()=>{
+    const {getByText,getByTestId}=render(<Search />)
+    const button=getByText('TechSearch');
+    fireEvent.click(button);
+    expect(document.activeElement).toBe(getByTestId('searchinput'))
 })
