@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
+import SearchInput from "./SearchInput";
 
 const Search = () => {
   const searchRef = useRef(null);
   const [search, setSearch] = useState("");
+  const [value, setValue] = useState("");
   const [user, setUser] = useState(null);
-
 
   const getUser = () => {
     return Promise.resolve({
@@ -25,7 +26,7 @@ const Search = () => {
     <div style={{ background: "gray", width: "100%" }}>
       <h1>Search a User</h1>
       <p data-testid='searchvalue'>Search for {search ? search : "..."}</p>
-      <p data-testid="user">User: {user?user.name:''}</p>
+      <p data-testid='user'>User: {user ? user.name : ""}</p>
       <input
         ref={searchRef}
         type='text'
@@ -35,9 +36,18 @@ const Search = () => {
         }}
       />
       <button onClick={() => searchRef.current.focus()}>Search</button>
+      <p style={{color:'black'}}>{value}</p>
+      <SearchInput
+        value={value}
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+      >
+        Technical Search
+      </SearchInput>
+      
     </div>
   );
 };
 
 export default Search;
-
