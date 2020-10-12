@@ -1,6 +1,7 @@
 import React from 'react';
 import Search from './Search';
 import { fireEvent,render,screen,act } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 describe('Search component',()=>{
     beforeEach(()=>{
@@ -26,11 +27,13 @@ describe('Search component',()=>{
         expect(document.activeElement).toBe(searchInput)
     })
 
-    test('search value will be updated',()=>{
+    test('search value will be updated',async ()=>{
         let searchInput=screen.getByRole('textbox');
-        fireEvent.change(searchInput,{target:{value:"Tom Smith"}})
+        await fireEvent.change(searchInput,{target:{value:"Tom Smith"}})
         expect(screen.queryByText('Search for ...')).toBeNull();
         expect(screen.getByTestId('searchvalue').textContent).toBe('Search for Tom Smith')
+        await userEvent.type(searchInput,"Javascript");
+        expect(screen.getByText('Search for Javascript')).toBeInTheDocument()
     })
 
     test('user should be "Jack"',async()=>{
