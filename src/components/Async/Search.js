@@ -14,13 +14,20 @@ const Search = () => {
       name: "Jack",
     });
   };
-
+ 
   useEffect(() => {
-    const loadUser = async () => {
-      const user = await getUser();
-      setUser(user);
-    };
-    loadUser();
+    let isCancelled=false
+    if(!isCancelled){
+      const loadUser = async () => {
+        const user = await getUser();
+        setUser(user);
+      };
+      loadUser();
+    }
+    
+    return ()=>{
+      isCancelled=true
+    }
   }, []);
 
   return (

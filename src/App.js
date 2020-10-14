@@ -8,6 +8,7 @@ import TimeOut from './components/timeout/TimeOut';
 import Fetch from './components/fetch API/Fetch';
 import MultipleFetches from './components/multipleFetch/multipleFetches';
 import Search from './components/Async/Search';
+import MockAxios from './components/MockAxios/MockAxios';
 
 function App() {
   const sayHello=()=>{
@@ -28,8 +29,9 @@ function App() {
        <MultipleFetches />
        <hr/>
        <Search />
+       <MockAxios />
        </header>
-    
+       
     </div>
   );
 }
