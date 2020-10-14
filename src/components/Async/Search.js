@@ -9,25 +9,19 @@ const Search = () => {
   const [user, setUser] = useState(null);
 
   const getUser = () => {
-    return Promise.resolve({
+    return ({
       id: "1",
       name: "Jack",
     });
   };
  
   useEffect(() => {
-    let isCancelled=false
-    if(!isCancelled){
-      const loadUser = async () => {
-        const user = await getUser();
+      const loadUser = () => {
+        const user = getUser();
         setUser(user);
       };
       loadUser();
-    }
-    
-    return ()=>{
-      isCancelled=true
-    }
+
   }, []);
 
   return (

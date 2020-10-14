@@ -1,16 +1,16 @@
 import React from 'react';
 import Search from './Search';
-import { fireEvent,render,screen,act, getByTestId } from '@testing-library/react';
+import { fireEvent,render,screen,act, getByTestId, waitForElement } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import SearchInput from './SearchInput';
 
 
 describe('Search component',()=>{
-    beforeEach(()=>{
-        render(<Search />);
-       })
+   beforeEach(()=>{
+       render(<Search />)
+   })
  
-    test('should render h1b',()=>{    
+    test('should render h1b',()=>{   
         expect(screen.getByText(/Search a User/)).toBeInTheDocument();
     })
 
@@ -42,7 +42,7 @@ describe('Search component',()=>{
     })
 
     test('user should be "Jack"',async()=>{
-        expect(await screen.findByText('User: Jack')).toBeInTheDocument()
+        expect( await screen.findByText('User: Jack')).toBeInTheDocument()
     })
 
 })
@@ -61,7 +61,7 @@ test('Calls the onChange callback handler',()=>{
 })
 
 //testing forwarded ref
-test('It should foncus after techSearch button is clicked',()=>{
+test('It should focus after techSearch button is clicked',()=>{
     const {getByText,getByTestId}=render(<Search />)
     const button=getByText('TechSearch');
     fireEvent.click(button);
